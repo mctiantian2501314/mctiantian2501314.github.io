@@ -339,6 +339,7 @@
                     <button onclick="showCaptcha2()">随便画画</button>
                 </div>
                 <div id="captcha2" style="display:none">
+                  <p>请输入"飞速中文垃圾网站"</p>
                     <input type="text" id="keyword" placeholder="输入神秘关键词">
                     <button onclick="validate()">提交验证</button>
                 </div>
@@ -397,7 +398,7 @@
     <script>
         let attempts = 3;
         let timer;
-        const secretCode = "飞速中文nb";
+        const secretCode = "飞速中文垃圾网站";
         let touchStartX = 0;
 
         // 触摸事件处理
@@ -523,4 +524,4 @@
 
     // 初始化显示第一个场景
     showScene(1);
-    </script>
+</script>
