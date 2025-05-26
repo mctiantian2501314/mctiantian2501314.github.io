@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>玄蛋秘阁</title>
+    <!-- 阿里云图标 -->
+    <link rel="stylesheet" href="///at.alicdn.com/t/c/font_3741065_bborwcqz5h.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f5f1e8 url('data:image/png;base64,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');
+            font-family: '华文楷体', '楷体', 'Microsoft YaHei', sans-serif;
+            color: #3d2f1d;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 3rem;
+            background: #fffef9;
+            border: 1px solid #e0d5c3;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.08);
+            position: relative;
+        }
+
+        /* 古风装饰边框 */
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 2px dashed #8b7355;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto;
+            border: 2px solid #8b7355;
+            border-radius: 50%;
+            padding: 3px;
+            box-shadow: 0 0 12px rgba(139, 115, 85, 0.2);
+        }
+
+        /* 玄卵样式 */
+        .mystic-egg {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            background: radial-gradient(circle, #f5f1e8 30%, #8b7355 100%);
+            border-radius: 50%;
+            animation: glow 3s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 10px #8b7355; }
+            50% { box-shadow: 0 0 20px #8b7355; }
+        }
+
+        .nav-links {
+            margin-top: 2.5rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            background: #faf8f3;
+            border: 1px solid #e0d5c3;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: #5a4532;
+            position: relative;
+        }
+
+        .nav-item i {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            color: #8b7355;
+        }
+
+        .nav-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 3px 3px 8px rgba(0,0,0,0.1);
+        }
+
+        /* 志异内容样式 */
+        .mystic-content {
+            padding: 2rem;
+            background: #fff5e6;
+            border: 1px solid #e0d5c3;
+            margin-top: 2rem;
+            column-count: 2;
+            column-gap: 3rem;
+            column-rule: 1px dashed #d4c9b8;
+        }
+
+        .mystic-title {
+            font-size: 1.4rem;
+            color: #6b4f32;
+            margin: 1.5rem 0;
+            text-align: center;
+            column-span: all;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 1rem;
+                padding: 2rem;
+            }
+            .nav-links {
+                grid-template-columns: 1fr;
+            }
+            .mystic-content {
+                column-count: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="mystic-egg" style="top:20px;left:20px;"></div>
+        <div class="mystic-egg" style="bottom:20px;right:20px;"></div>
+
+        <div class="avatar">
+            <img src="icon.png" alt="玄蛋">
+        </div>
+          <div class="mystic-content">
+          <h2>天天的鸟蛋蛋</h2>
+            <p>可焚林薮，可绝五谷，不可伤鸟蛋，吾字鸟蛋。</p>
+            </div>
+        <div class="nav-links">
+            <a href="https://github.com/mctiantian2501314" class="nav-item" target="_blank">
+                <i class="iconfont icon-github"></i>
+                <span>星墟秘境</span>
+            </a>
+            <a href="https://blog.ttxz.eu.org" class="nav-item">
+                <i class="iconfont icon-blog"></i>
+                <span>太虚笔录</span>
+            </a>
+            <a href="https://space.bilibili.com/1410040280" class="nav-item">
+                <i class="iconfont icon-bilibili"></i>
+                <span>玄光宝鉴</span>
+            </a>
+            <a href="http://www.coolapk.com/u/36101991" class="nav-item">
+                <i class="iconfont icon-coolapk1"></i>
+                <span>造化工坊</span>
+            </a>
+            <a href="https://sy.ttxz.eu.org" class="nav-item">
+                <i class="iconfont icon-duanzaogongyi"></i>
+                <span>锻造之地</span>
+            </a>
+        </div>
+
+        <div class="mystic-content">
+            <h3 class="mystic-title">《玄卵志异》</h3>
+            <!-- 这里插入你提供的所有志异文本 -->
+           <p>《玄卵志异》</p><p>玄穹晦暝之夜，有青芒自九渊升腾。乡人循迹至断崖，见石髓凝结处藏巨卵，通体玉质，隐现太古灵纹。樵者触之，雷鸣百里，云中现蛟龙百首争噬。忽卵壳迸裂，金霞漫溢，中有稚声曰："千年孕灵胎，终渡红尘劫。"众妖惶退间，卵已化流萤散入星河。翌日崖壁留篆：贪痴尽处，方见本来。</p><p></p><p>《玄卵志异·器道卷补遗》</p><p>稚童蜕玉胎后，入炼虚境。须采天火淬魂，融星辰精魄铸本命器胚。器成则元神化虚为实，可裂山焚海。至合体境，血肉经络皆烙器纹，举手投足自成法阵。有破障者窥通玄境，引九霄雷池铸混元道体，器灵孕于紫府，吞吐阴阳二气。待劫雷淬器九转，器碎婴合，方证大乘。然古卷末章载：万载间止三人踏碎虚空，其本命法器皆化作混沌青莲，根须穿透三千小界。</p><p></p><p></p><p></p><p></p><p>《玄卵志异·残卷死兆化生赋》</p><p></p><p>死兆之卵，玄壳将坼。混沌未形，阴阳相迫。或为寂灭之渊，或作生门之钥。观者瞠目，卜者掷蓍——此造化之悬解，实幽冥之奇谲也！</p><p></p><p>当是时也，黑翳吞光，苍穹裂璺。卵中鸣若陶埙，声振九幽之府。忽有青磷迸溅，凝为偈语："生者死之根，死者生之本。"众骇而趋避，独一癯叟拊掌："妙哉！此卵非卵，乃大化之丹炉耳！"</p><p></p><p>俄而卵壳皴裂，显非显，隐非隐。有见修罗浴火，有睹婴孩吮指，更闻木铎声自太虚来。刹那万相俱寂，唯余空壳浮旋，内壁朱篆粲然："未生者恒存，既生者永逝。" </p><p></p><p>太史公曰：观此异卵，岂非造化小儿故弄狡狯耶？方其未破，万亿可能具足；及其既破，反失天地玄机。庄周梦蝶之惑，季札挂剑之疑，盖与此卵同参。夫生死之化，犹盲者扪鼎，各执一隅耳！</p><p></p><p>《玄卵志异·残卷死兆化生赋 卷二》</p><p></p><p>太虚悬卵，其色黮黮。壳纹如裂星躔，内孕玄黄未分。有楚巫夜占荧惑，见卵影吞昴宿；胡僧晨课楞严，闻壳隙泄罡风。或曰："此物非生非死，乃天地一息耳！"</p><p></p><p>忽作金革声，卵悬三颤。东极迸紫电，西极凝霜髓。有列子御风临观，抚膺叹曰："大块噫气，在此卵乎？"语未竟，壳隙青芒暴涨，中有物似鲲鹏振翅，似嫠妇泣血，更似老聃倒骑青牛入函谷。众目眩神摇间，忽化芥子入虚空，唯余焦土篆文："我本无相，观者自缚。"</p><p></p><p>比丘合十曰："善哉！此卵即无明业火，焚尽十二因缘。" 方士蹙眉曰："谬矣！此乃混元丹胎，暗合九转周天。" 野老荷锄笑曰："二子痴绝！不过朽瓜坠地，腐浆养新藤。"</p><p></p><p>太玄真人闻而拊掌："《易》云'穷则变'，此卵穷生死之极而化也。然变者谁主？化者谁宰？"遂掷笔泼墨，绘卵悬虚空：半壳染血作赤幡，半壳凝露化白莲。复题偈曰："方生方死际，非灭非起时。欲叩真消息，且看未破枝。"</p><p></p><p>《玄卵志异·残卷死兆化生赋 外》</p><p></p><p>黮色卵壳渐转琉璃光，纹路忽作河图洛书相。南疆蛊婆见之呕出本命蚕，蚕丝结"劫"字；北溟钓叟观此折竿，竿头垂露竟凝成"遁"卦。忽有鹤发童颜者踏歌而来："汝等只见卵动，岂知天地亦在卵中旋？"</p><p></p><p>卵内骤响编钟十二律，每声皆震落星辰。西王母悬圃蟠桃霎时萎谢，花瓣拼作蝌蚪文："孕道者自囚，破囚者失道。" 地府孽镜台忽现裂纹，照见卵中混沌翻涌，有巨手执刻刀自凿七窍。</p><p></p><p>值此天地交泰之际，卵壳竟生阴阳鱼旋。墨家钜子以规尺丈量，尺裂而叹："非方非圆，此器之祖也！" 稷下学士焚简问天，灰烬飘作蝴蝶，翅纹皆显"刳"字。忽闻卵中传来击壤歌，耕战者俱匍匐，手中耒耜尽化青烟。</p><p></p><p>倏尔八荒同震，卵悬处现九重光轮。首轮现饕餮吞日，次轮化精卫填海，末轮竟见娲皇抟土造人。巫咸以蓍草占之，草茎尽作人形叩首。忽有稚子指天笑呼："看！卵在吃自己的壳！"</p><p></p><p>待万象归寂，虚空留痕如唇印。抱朴子疾书："此非卵也，乃道枢蛀孔。" 青城剑仙拔剑欲斩，剑锋过处生出珊瑚枝，结满含珠贝。渔人网得空壳半片，叩之闻潮声，细观内壁有荧光小篆：</p><p>"存者亡之始，破者成之终。欲问真消息，且看未破时——破亦未破，未破已破。"</p><p></p><p>太虚翁批注：昔者浑沌凿七窍而死，今观此卵自凿自愈，乃知生死非二途。然卵中物究竟何往？或言见其化入老君炉火，或言闻其散作达摩苇叶。老朽夜观璇玑，见北斗勺柄缀新星，其光青白交缠——岂非卵壳余烬耶？</p><p></p><p></p><p>《玄卵志异·残卷因果轮相书》</p><p></p><p>太初有涡，悬于星墟。其纹如盘蛇衔尾，昼夜吐纳蜃气，幻化六道众生相。有渔者误入，见自身化为饿鬼啖肠、修罗执戟、天人坠玉阶，七日后枯骨出，掌中握琉璃骰子，刻"业重者先焚"五字。蓬莱观主以河图推演，骇然曰："此乃无间轮转枢机，凡触之者，必承累世因果！"</p><p></p><p>时有比丘尼结痂伽跌坐，周身绽优昙钵华。涡中忽迸五百罗刹女，持骨笛奏《阿鼻曲》，尼合掌诵："一切有为法，如露亦如电。" 笛音竟化金绳缚涡，绳结处生《楞严咒》梵文。然未及三息，绳断涡涨，吞没三山五岳虚影。尼跌坐处唯余贝叶经，朱批云："破障者，非渡劫人。"</p><p></p><p>忽雷音自地脉涌，涡心现青铜巨门。门环作饕餮噬日状，镌上古殄文："开门者食己肉，闭门者剜己目。" 墨家巨子铸九窍锁镇之，锁成之日，饕餮目淌血泪，门内传出稚子笑——竟是巨子幼时嗓音！其妻大恸，掷家传鱼肠剑刺门，剑穗忽化赤蛇反噬，俄顷夫妻皆作石像，掌心相抵处浮卦象：䷮ 既济未济。</p><p></p><p>青城剑仙御万剑成阵，剑芒织就周天星斗图。涡中陡现剑冢幻境，历代宗师残魂齐啸："汝三十七代前身，为夺《紫霄剑典》毒杀同门，此债当偿！" 剑阵应声崩解，仙君眉心血痕蜿蜒，凝成锁链没入涡眼。旁观者见其法相渐朽，独本命飞剑"太素"嗡鸣不止，剑脊显蚀文："斩因容易断果难。"</p><p></p><p>忽有乞儿踉跄至，掷残破陶碗入涡。碗遇蜃气暴涨，倒扣天地如钟磬。涡中万象骤凝：修罗剑尖悬露、饿鬼喉间米粒、天人衣袂褶皱皆清晰可辨。乞儿拍手笑唱："泥牛吞海月，纸马踏劫灰。要问轮回苦，且看这——" 歌声戛然，人与陶碗俱杳，唯涡心留掌印，纹路竟与玄卵灵纹同源！</p><p></p><p>太乙神数传人夜起卜卦，见龟甲裂纹交织成卵形，恍悟而叹："昔者玄卵裂为生死，今朝因果结作轮回。所谓劫数，不过众生共业反照耳！" 遂焚所有卦签，披发入涡。三昼夜后，星墟现奇观：十万八千漩涡同诵《度人经》，中有白发老道骑青驴倒影，驴铃每响，便有一卵自虚空生。</p><p></p><p></p>
+        </div>
+    </div>
+</body>
+</html>
