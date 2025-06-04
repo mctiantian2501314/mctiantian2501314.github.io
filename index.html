@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+</body>
+</html><!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
@@ -6,6 +7,7 @@
     <title>玄蛋秘阁</title>
     <!-- 阿里云图标 -->
     <link rel="stylesheet" href="///at.alicdn.com/t/c/font_3741065_bborwcqz5h.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -148,6 +150,325 @@
                 column-count: 1;
             }
         }
+        
+        /* 古风广告弹窗样式 */
+        #advertised-modal {
+            display: flex;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            box-sizing: border-box;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease;
+            font-family: '华文楷体', '楷体', 'Microsoft YaHei', sans-serif;
+        }
+        
+        #advertised-modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .ad-modal-container {
+            background: #fffef9;
+            border-radius: 8px;
+            width: 85%;
+            max-width: 380px;
+            box-shadow: 0 10px 25px rgba(91, 71, 50, 0.3);
+            overflow: hidden;
+            position: relative;
+            transform: scale(0.95) translateY(20px);
+            animation: adSlideIn 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+            border: 2px solid #8b7355;
+        }
+        
+        @keyframes adSlideIn {
+            to { 
+                transform: scale(1) translateY(0); 
+                opacity: 1;
+            }
+        }
+        
+        /* 古风雕花修饰 */
+        .ad-modal-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 20px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><path d="M10,15 Q15,20 20,15 Q25,10 30,15 Q35,20 40,15 Q45,10 50,15 Q55,20 60,15 Q65,10 70,15 Q75,20 80,15 Q85,10 90,15" stroke="%238b7355" fill="none" stroke-width="1"/></svg>') repeat-x;
+            opacity: 0.6;
+        }
+        
+        .modal-ribbon {
+            position: absolute;
+            top: 30px;
+            right: -20px;
+            background: #e74c3c;
+            color: white;
+            padding: 4px 32px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-align: center;
+            transform: rotate(45deg);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+            z-index: 10;
+            font-family: inherit;
+            border: 1px solid #c0392b;
+        }
+        
+        .modal-header {
+            background: #8b7355;
+            color: #f9f4e8;
+            padding: 15px 10px 12px;
+            text-align: center;
+            position: relative;
+            border-bottom: 1px solid #6b5a46;
+            font-family: inherit;
+        }
+        
+        .modal-header h2 {
+            font-size: 1.3rem;
+            margin: 5px 0 3px;
+            font-weight: 600;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-family: inherit;
+        }
+        
+        .modal-header p {
+            font-size: 0.85rem;
+            opacity: 0.9;
+            margin-bottom: 0;
+            font-family: inherit;
+        }
+        
+        .modal-body {
+            padding: 15px;
+            font-family: inherit;
+            background: #fffaf0;
+        }
+        
+        .modal-body p {
+            font-size: 0.85rem;
+            line-height: 1.5;
+            color: #5a4532;
+            margin-bottom: 8px;
+            padding: 5px 8px;
+            position: relative;
+            display: flex;
+            align-items: flex-start;
+            font-family: inherit;
+            background: #fcf8ef;
+            border-radius: 4px;
+            border: 1px solid #e9e1d1;
+        }
+        
+        .p-icon {
+            min-width: 18px;
+            font-size: 0.9em;
+            color: #c0392b;
+            margin-right: 8px;
+            margin-top: 2px;
+        }
+        
+        .ad-image {
+            width: 100%;
+            margin: 10px 0 8px;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid #d1c4a7;
+            box-shadow: 0 2px 5px rgba(91, 71, 50, 0.1);
+        }
+        
+        .ad-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .links-container {
+            padding: 8px 0;
+            margin: 8px 0;
+        }
+        
+        .link-item {
+            margin-bottom: 10px;
+            padding: 9px 12px;
+            background: #faf6eb;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            border: 1px solid #d1c4a7;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+        
+        .link-item:hover {
+            background-color: rgba(231, 76, 60, 0.08);
+            border-color: #c0392b;
+        }
+        
+        .link-icon {
+            font-size: 1rem;
+            color: #c0392b;
+            margin-right: 12px;
+        }
+        
+        .link-text {
+            flex: 1;
+            overflow: hidden;
+        }
+        
+        .link-text a {
+            color: #8b7355;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.83rem;
+            word-break: break-all;
+            display: block;
+            font-family: inherit;
+            transition: color 0.2s;
+        }
+        
+        .link-text a:hover {
+            color: #c0392b;
+            text-decoration: underline;
+        }
+        
+        .tags-ad {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin: 15px 0 10px;
+        }
+        
+        .tag-ad {
+            background: #8b7355;
+            color: #f9f4e8;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+            border: 1px solid #6b5a46;
+            font-family: inherit;
+        }
+        
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 1.4rem;
+            color: #f9f4e8;
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(139, 115, 85, 0.7);
+            border: 1px solid #f9f4e8;
+            opacity: 0.9;
+            transition: all 0.3s ease;
+            z-index: 15;
+            font-family: inherit;
+        }
+
+        .close-button:hover {
+            background: rgba(193, 57, 43, 0.8);
+            opacity: 1;
+            transform: rotate(180deg);
+        }
+        
+        .countdown-container {
+            padding: 0 5px;
+            margin-top: 12px;
+        }
+        
+        .countdown-bar {
+            height: 6px;
+            background: #e9e1d1;
+            border-radius: 3px;
+            overflow: hidden;
+            border: 1px solid #d1c4a7;
+        }
+        
+        .countdown-progress {
+            height: 100%;
+            width: 100%;
+            background: #c0392b;
+            border-radius: 3px;
+            transition: width 0.3s ease;
+        }
+        
+        .countdown-text {
+            font-size: 0.8rem;
+            color: #8b7355;
+            margin-top: 8px;
+            text-align: center;
+            font-family: inherit;
+        }
+        
+        .close-instruction {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #8b7355;
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px dashed #d1c4a7;
+            font-family: inherit;
+        }
+        
+        @media (max-width: 768px) {
+            .modal-ribbon {
+                top: 20px;
+                right: -20px;
+                font-size: 0.7rem;
+                padding: 3px 26px;
+            }
+
+            .close-button {
+                top: 5px;
+                right: 5px;
+                width: 26px;
+                height: 26px;
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .modal-ribbon {
+                top: 20px;
+                right: -20px;
+                font-size: 0.65rem;
+                padding: 3px 22px;
+            }
+
+            .close-button {
+                top: 3px;
+                right: 3px;
+                font-size: 1.1rem;
+                width: 22px;
+                height: 22px;
+            }
+            
+            .modal-header h2 {
+                font-size: 1.1rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -158,10 +479,10 @@
         <div class="avatar">
             <img src="icon.png" alt="玄蛋">
         </div>
-          <div class="mystic-content">
-          <h2>天天的鸟蛋蛋</h2>
+        <div class="mystic-content">
+            <h2>天天的鸟蛋蛋</h2>
             <p>可焚林薮，可绝五谷，不可伤鸟蛋，吾字鸟蛋。</p>
-            </div>
+        </div>
         <div class="nav-links">
             <a href="https://github.com/mctiantian2501314" class="nav-item" target="_blank">
                 <i class="iconfont icon-github"></i>
@@ -183,8 +504,7 @@
                 <i class="iconfont icon-duanzaogongyi"></i>
                 <span>锻造之地</span>
             </a>
-
-          <a href="https://k.amiao.co/h5/index?uc=W6ACvzAA3WXF" class="nav-item">
+            <a href="https://k.amiao.co/h5/index?uc=W6ACvzAA3WXF" class="nav-item">
                 <i class="iconfont"></i>
                 <span>超绝好卡</span>
             </a>
@@ -193,8 +513,173 @@
         <div class="mystic-content">
             <h3 class="mystic-title">《玄卵志异》</h3>
             <!-- 这里插入你提供的所有志异文本 -->
-           <p>《玄卵志异》</p><p>玄穹晦暝之夜，有青芒自九渊升腾。乡人循迹至断崖，见石髓凝结处藏巨卵，通体玉质，隐现太古灵纹。樵者触之，雷鸣百里，云中现蛟龙百首争噬。忽卵壳迸裂，金霞漫溢，中有稚声曰："千年孕灵胎，终渡红尘劫。"众妖惶退间，卵已化流萤散入星河。翌日崖壁留篆：贪痴尽处，方见本来。</p><p></p><p>《玄卵志异·器道卷补遗》</p><p>稚童蜕玉胎后，入炼虚境。须采天火淬魂，融星辰精魄铸本命器胚。器成则元神化虚为实，可裂山焚海。至合体境，血肉经络皆烙器纹，举手投足自成法阵。有破障者窥通玄境，引九霄雷池铸混元道体，器灵孕于紫府，吞吐阴阳二气。待劫雷淬器九转，器碎婴合，方证大乘。然古卷末章载：万载间止三人踏碎虚空，其本命法器皆化作混沌青莲，根须穿透三千小界。</p><p></p><p></p><p></p><p></p><p>《玄卵志异·残卷死兆化生赋》</p><p></p><p>死兆之卵，玄壳将坼。混沌未形，阴阳相迫。或为寂灭之渊，或作生门之钥。观者瞠目，卜者掷蓍——此造化之悬解，实幽冥之奇谲也！</p><p></p><p>当是时也，黑翳吞光，苍穹裂璺。卵中鸣若陶埙，声振九幽之府。忽有青磷迸溅，凝为偈语："生者死之根，死者生之本。"众骇而趋避，独一癯叟拊掌："妙哉！此卵非卵，乃大化之丹炉耳！"</p><p></p><p>俄而卵壳皴裂，显非显，隐非隐。有见修罗浴火，有睹婴孩吮指，更闻木铎声自太虚来。刹那万相俱寂，唯余空壳浮旋，内壁朱篆粲然："未生者恒存，既生者永逝。" </p><p></p><p>太史公曰：观此异卵，岂非造化小儿故弄狡狯耶？方其未破，万亿可能具足；及其既破，反失天地玄机。庄周梦蝶之惑，季札挂剑之疑，盖与此卵同参。夫生死之化，犹盲者扪鼎，各执一隅耳！</p><p></p><p>《玄卵志异·残卷死兆化生赋 卷二》</p><p></p><p>太虚悬卵，其色黮黮。壳纹如裂星躔，内孕玄黄未分。有楚巫夜占荧惑，见卵影吞昴宿；胡僧晨课楞严，闻壳隙泄罡风。或曰："此物非生非死，乃天地一息耳！"</p><p></p><p>忽作金革声，卵悬三颤。东极迸紫电，西极凝霜髓。有列子御风临观，抚膺叹曰："大块噫气，在此卵乎？"语未竟，壳隙青芒暴涨，中有物似鲲鹏振翅，似嫠妇泣血，更似老聃倒骑青牛入函谷。众目眩神摇间，忽化芥子入虚空，唯余焦土篆文："我本无相，观者自缚。"</p><p></p><p>比丘合十曰："善哉！此卵即无明业火，焚尽十二因缘。" 方士蹙眉曰："谬矣！此乃混元丹胎，暗合九转周天。" 野老荷锄笑曰："二子痴绝！不过朽瓜坠地，腐浆养新藤。"</p><p></p><p>太玄真人闻而拊掌："《易》云'穷则变'，此卵穷生死之极而化也。然变者谁主？化者谁宰？"遂掷笔泼墨，绘卵悬虚空：半壳染血作赤幡，半壳凝露化白莲。复题偈曰："方生方死际，非灭非起时。欲叩真消息，且看未破枝。"</p><p></p><p>《玄卵志异·残卷死兆化生赋 外》</p><p></p><p>黮色卵壳渐转琉璃光，纹路忽作河图洛书相。南疆蛊婆见之呕出本命蚕，蚕丝结"劫"字；北溟钓叟观此折竿，竿头垂露竟凝成"遁"卦。忽有鹤发童颜者踏歌而来："汝等只见卵动，岂知天地亦在卵中旋？"</p><p></p><p>卵内骤响编钟十二律，每声皆震落星辰。西王母悬圃蟠桃霎时萎谢，花瓣拼作蝌蚪文："孕道者自囚，破囚者失道。" 地府孽镜台忽现裂纹，照见卵中混沌翻涌，有巨手执刻刀自凿七窍。</p><p></p><p>值此天地交泰之际，卵壳竟生阴阳鱼旋。墨家钜子以规尺丈量，尺裂而叹："非方非圆，此器之祖也！" 稷下学士焚简问天，灰烬飘作蝴蝶，翅纹皆显"刳"字。忽闻卵中传来击壤歌，耕战者俱匍匐，手中耒耜尽化青烟。</p><p></p><p>倏尔八荒同震，卵悬处现九重光轮。首轮现饕餮吞日，次轮化精卫填海，末轮竟见娲皇抟土造人。巫咸以蓍草占之，草茎尽作人形叩首。忽有稚子指天笑呼："看！卵在吃自己的壳！"</p><p></p><p>待万象归寂，虚空留痕如唇印。抱朴子疾书："此非卵也，乃道枢蛀孔。" 青城剑仙拔剑欲斩，剑锋过处生出珊瑚枝，结满含珠贝。渔人网得空壳半片，叩之闻潮声，细观内壁有荧光小篆：</p><p>"存者亡之始，破者成之终。欲问真消息，且看未破时——破亦未破，未破已破。"</p><p></p><p>太虚翁批注：昔者浑沌凿七窍而死，今观此卵自凿自愈，乃知生死非二途。然卵中物究竟何往？或言见其化入老君炉火，或言闻其散作达摩苇叶。老朽夜观璇玑，见北斗勺柄缀新星，其光青白交缠——岂非卵壳余烬耶？</p><p></p><p></p><p>《玄卵志异·残卷因果轮相书》</p><p></p><p>太初有涡，悬于星墟。其纹如盘蛇衔尾，昼夜吐纳蜃气，幻化六道众生相。有渔者误入，见自身化为饿鬼啖肠、修罗执戟、天人坠玉阶，七日后枯骨出，掌中握琉璃骰子，刻"业重者先焚"五字。蓬莱观主以河图推演，骇然曰："此乃无间轮转枢机，凡触之者，必承累世因果！"</p><p></p><p>时有比丘尼结痂伽跌坐，周身绽优昙钵华。涡中忽迸五百罗刹女，持骨笛奏《阿鼻曲》，尼合掌诵："一切有为法，如露亦如电。" 笛音竟化金绳缚涡，绳结处生《楞严咒》梵文。然未及三息，绳断涡涨，吞没三山五岳虚影。尼跌坐处唯余贝叶经，朱批云："破障者，非渡劫人。"</p><p></p><p>忽雷音自地脉涌，涡心现青铜巨门。门环作饕餮噬日状，镌上古殄文："开门者食己肉，闭门者剜己目。" 墨家巨子铸九窍锁镇之，锁成之日，饕餮目淌血泪，门内传出稚子笑——竟是巨子幼时嗓音！其妻大恸，掷家传鱼肠剑刺门，剑穗忽化赤蛇反噬，俄顷夫妻皆作石像，掌心相抵处浮卦象：䷮ 既济未济。</p><p></p><p>青城剑仙御万剑成阵，剑芒织就周天星斗图。涡中陡现剑冢幻境，历代宗师残魂齐啸："汝三十七代前身，为夺《紫霄剑典》毒杀同门，此债当偿！" 剑阵应声崩解，仙君眉心血痕蜿蜒，凝成锁链没入涡眼。旁观者见其法相渐朽，独本命飞剑"太素"嗡鸣不止，剑脊显蚀文："斩因容易断果难。"</p><p></p><p>忽有乞儿踉跄至，掷残破陶碗入涡。碗遇蜃气暴涨，倒扣天地如钟磬。涡中万象骤凝：修罗剑尖悬露、饿鬼喉间米粒、天人衣袂褶皱皆清晰可辨。乞儿拍手笑唱："泥牛吞海月，纸马踏劫灰。要问轮回苦，且看这——" 歌声戛然，人与陶碗俱杳，唯涡心留掌印，纹路竟与玄卵灵纹同源！</p><p></p><p>太乙神教传人夜起卜卦，见龟甲裂纹交织成卵形，恍悟而叹："昔者玄卵裂为生死，今朝因果结作轮回。所谓劫数，不过众生共业反照耳！" 遂焚所有卦签，披发入涡。三昼夜后，星墟现奇观：十万八千漩涡同诵《度人经》，中有白发老道骑青驴倒影，驴铃每响，便有一卵自虚空生。</p><p></p><p></p>
+            <p>《玄卵志异》</p>
+            <p>玄穹晦暝之夜，有青芒自九渊升腾。乡人循迹至断崖，见石髓凝结处藏巨卵，通体玉质，隐现太古灵纹。樵者触之，雷鸣百里，云中现蛟龙百首争噬。忽卵壳迸裂，金霞漫溢，中有稚声曰："千年孕灵胎，终渡红尘劫。"众妖惶退间，卵已化流萤散入星河。翌日崖壁留篆：贪痴尽处，方见本来。</p>
+            <p></p>
+            <p>《玄卵志异·器道卷补遗》</p>
+            <p>稚童蜕玉胎后，入炼虚境。须采天火淬魂，融星辰精魄铸本命器胚。器成则元神化虚为实，可裂山焚海。至合体境，血肉经络皆烙器纹，举手投足自成法阵。有破障者窥通玄境，引九霄雷池铸混元道体，器灵孕于紫府，吞吐阴阳二气。待劫雷淬器九转，器碎婴合，方证大乘。然古卷末章载：万载间止三人踏碎虚空，其本命法器皆化作混沌青莲，根须穿透三千小界。</p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p>《玄卵志异·残卷死兆化生赋》</p>
+            <p></p>
+            <p>死兆之卵，玄壳将坼。混沌未形，阴阳相迫。或为寂灭之渊，或作生门之钥。观者瞠目，卜者掷蓍——此造化之悬解，实幽冥之奇谲也！</p>
+            <p></p>
+            <p>当是时也，黑翳吞光，苍穹裂璺。卵中鸣若陶埙，声振九幽之府。忽有青磷迸溅，凝为偈语："生者死之根，死者生之本。"众骇而趋避，独一癯叟拊掌："妙哉！此卵非卵，乃大化之丹炉耳！"</p>
+            <p></p>
+            <p>俄而卵壳皴裂，显非显，隐非隐。有见修罗浴火，有睹婴孩吮指，更闻木铎声自太虚来。刹那万相俱寂，唯余空壳浮旋，内壁朱篆粲然："未生者恒存，既生者永逝。" </p>
+            <p></p>
+            <p>太史公曰：观此异卵，岂非造化小儿故弄狡狯耶？方其未破，万亿可能具足；及其既破，反失天地玄机。庄周梦蝶之惑，季札挂剑之疑，盖与此卵同参。夫生死之化，犹盲者扪鼎，各执一隅耳！</p>
+            <p></p>
+            <p>《玄卵志异·残卷死兆化生赋 卷二》</p>
+            <p></p>
+            <p>太虚悬卵，其色黮黮。壳纹如裂星躔，内孕玄黄未分。有楚巫夜占荧惑，见卵影吞昴宿；胡僧晨课楞严，闻壳隙泄罡风。或曰："此物非生非死，乃天地一息耳！"</p>
+            <p></p>
+            <p>忽作金革声，卵悬三颤。东极迸紫电，西极凝霜髓。有列子御风临观，抚膺叹曰："大块噫气，在此卵乎？"语未竟，壳隙青芒暴涨，中有物似鲲鹏振翅，似嫠妇泣血，更似老聃倒骑青牛入函谷。众目眩神摇间，忽化芥子入虚空，唯余焦土篆文："我本无相，观者自缚。"</p>
+            <p></p>
+            <p>比丘合十曰："善哉！此卵即无明业火，焚尽十二因缘。" 方士蹙眉曰："谬矣！此乃混元丹胎，暗合九转周天。" 野老荷锄笑曰："二子痴绝！不过朽瓜坠地，腐浆养新藤。"</p>
+            <p></p>
+            <p>太玄真人闻而拊掌："《易》云'穷则变'，此卵穷生死之极而化也。然变者谁主？化者谁宰？"遂掷笔泼墨，绘卵悬虚空：半壳染血作赤幡，半壳凝露化白莲。复题偈曰："方生方死际，非灭非起时。欲叩真消息，且看未破枝。"</p>
+            <p></p>
+            <p>《玄卵志异·残卷死兆化生赋 外》</p>
+            <p></p>
+            <p>黮色卵壳渐转琉璃光，纹路忽作河图洛书相。南疆蛊婆见之呕出本命蚕，蚕丝结"劫"字；北溟钓叟观此折竿，竿头垂露竟凝成"遁"卦。忽有鹤发童颜者踏歌而来："汝等只见卵动，岂知天地亦在卵中旋？"</p>
+            <p></p>
+            <p>卵内骤响编钟十二律，每声皆震落星辰。西王母悬圃蟠桃霎时萎谢，花瓣拼作蝌蚪文："孕道者自囚，破囚者失道。" 地府孽镜台忽现裂纹，照见卵中混沌翻涌，有巨手执刻刀自凿七窍。</p>
+            <p></p>
+            <p>值此天地交泰之际，卵壳竟生阴阳鱼旋。墨家钜子以规尺丈量，尺裂而叹："非方非圆，此器之祖也！" 稷下学士焚简问天，灰烬飘作蝴蝶，翅纹皆显"刳"字。忽闻卵中传来击壤歌，耕战者俱匍匐，手中耒耜尽化青烟。</p>
+            <p></p>
+            <p>倏尔八荒同震，卵悬处现九重光轮。首轮现饕餮吞日，次轮化精卫填海，末轮竟见娲皇抟土造人。巫咸以蓍草占之，草茎尽作人形叩首。忽有稚子指天笑呼："看！卵在吃自己的壳！"</p>
+            <p></p>
+            <p>待万象归寂，虚空留痕如唇印。抱朴子疾书："此非卵也，乃道枢蛀孔。" 青城剑仙拔剑欲斩，剑锋过处生出珊瑚枝，结满含珠贝。渔人网得空壳半片，叩之闻潮声，细观内壁有荧光小篆：</p>
+            <p>"存者亡之始，破者成之终。欲问真消息，且看未破时——破亦未破，未破已破。"</p>
+            <p></p>
+            <p>太虚翁批注：昔者浑沌凿七窍而死，今观此卵自凿自愈，乃知生死非二途。然卵中物究竟何往？或言见其化入老君炉火，或言闻其散作达摩苇叶。老朽夜观璇玑，见北斗勺柄缀新星，其光青白交缠——岂非卵壳余烬耶？</p>
+            <p></p>
+            <p></p>
+            <p>《玄卵志异·残卷因果轮相书》</p>
+            <p></p>
+            <p>太初有涡，悬于星墟。其纹如盘蛇衔尾，昼夜吐纳蜃气，幻化六道众生相。有渔者误入，见自身化为饿鬼啖肠、修罗执戟、天人坠玉阶，七日后枯骨出，掌中握琉璃骰子，刻"业重者先焚"五字。蓬莱观主以河图推演，骇然曰："此乃无间轮转枢机，凡触之者，必承累世因果！"</p>
+            <p></p>
+            <p>时有比丘尼结痂伽跌坐，周身绽优昙钵华。涡中忽迸五百罗刹女，持骨笛奏《阿鼻曲》，尼合掌诵："一切有为法，如露亦如电。" 笛音竟化金绳缚涡，绳结处生《楞严咒》梵文。然未及三息，绳断涡涨，吞没三山五岳虚影。尼跌坐处唯余贝叶经，朱批云："破障者，非渡劫人。"</p>
+            <p></p>
+            <p>忽雷音自地脉涌，涡心现青铜巨门。门环作饕餮噬日状，镌上古殄文："开门者食己肉，闭门者剜己目。" 墨家巨子铸九窍锁镇之，锁成之日，饕餮目淌血泪，门内传出稚子笑——竟是巨子幼时嗓音！其妻大恸，掷家传鱼肠剑刺门，剑穗忽化赤蛇反噬，俄顷夫妻皆作石像，掌心相抵处浮卦象：䷮ 既济未济。</p>
+            <p></p>
+            <p>青城剑仙御万剑成阵，剑芒织就周天星斗图。涡中陡现剑冢幻境，历代宗师残魂齐啸："汝三十七代前身，为夺《紫霄剑典》毒杀同门，此债当偿！" 剑阵应声崩解，仙君眉心血痕蜿蜒，凝成锁链没入涡眼。旁观者见其法相渐朽，独本命飞剑"太素"嗡鸣不止，剑脊显蚀文："斩因容易断果难。"</p>
+            <p></p>
+            <p>忽有乞儿踉跄至，掷残破陶碗入涡。碗遇蜃气暴涨，倒扣天地如钟磬。涡中万象骤凝：修罗剑尖悬露、饿鬼喉间米粒、天人衣袂褶皱皆清晰可辨。乞儿拍手笑唱："泥牛吞海月，纸马踏劫灰。要问轮回苦，且看这——" 歌声戛然，人与陶碗俱杳，唯涡心留掌印，纹路竟与玄卵灵纹同源！</p>
+            <p></p>
+            <p>太乙神教传人夜起卜卦，见龟甲裂纹交织成卵形，恍悟而叹："昔者玄卵裂为生死，今朝因果结作轮回。所谓劫数，不过众生共业反照耳！" 遂焚所有卦签，披发入涡。三昼夜后，星墟现奇观：十万八千漩涡同诵《度人经》，中有白发老道骑青驴倒影，驴铃每响，便有一卵自虚空生。</p>
+            <p></p>
+            <p></p>
         </div>
     </div>
+    
+    <!-- 广告弹窗 -->
+    <div id="advertised-modal">
+        <div class="ad-modal-container">
+            <div class="modal-ribbon">限时优惠</div>
+            <div class="modal-header">
+                <h2><i class="fas fa-sim-card"></i> 大额流量卡免费领</h2>
+                <p>陌轩通讯 每日上新</p>
+                <span class="close-button">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="ad-image">
+                    <img src="https://s2.loli.net/2025/06/04/XsehWozJNU6kZVA.jpg" alt="流量卡广告">
+                </div>
+                
+                <div class="links-container">
+                    <div class="link-item">
+                        <div class="link-icon"><i class="fas fa-link"></i></div>
+                        <div class="link-text">
+                            <a href="https://sourl.cn/yrm8S6" target="_blank">https://sourl.cn/yrm8S6</a>
+                        </div>
+                    </div>
+                    <div class="link-item">
+                        <div class="link-icon"><i class="fas fa-link"></i></div>
+                        <div class="link-text">
+                            <a href="https://sourl.cn/ADdLJZ" target="_blank">https://sourl.cn/ADdLJZ</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <p><span class="p-icon"><i class="fas fa-tag"></i></span>免费申领，邮费全免，非物联卡</p>
+                <p><span class="p-icon"><i class="fas fa-check"></i></span>缺流量卡可选，支持异地注销</p>
+                <p><span class="p-icon"><i class="fas fa-clock"></i></span>优惠限量，售罄可选同类卡片</p>
+                <p><span class="p-icon"><i class="fas fa-id-card"></i></span>官方正品卡，需真实信息办理</p>
+                
+                <div class="tags-ad">
+                    <div class="tag-ad">好卡推荐</div>
+                    <div class="tag-ad">电话卡</div>
+                    <div class="tag-ad">流量卡</div>
+                </div>
+                
+                <div class="countdown-container">
+                    <div class="countdown-bar">
+                        <div class="countdown-progress" id="countdownProgress"></div>
+                    </div>
+                    <div class="countdown-text" id="countdownText">10秒后自动关闭</div>
+                </div>
+               
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 广告弹窗功能
+        function setupAdModal() {
+            const adModal = document.getElementById("advertised-modal");
+            const closeButton = document.querySelector(".close-button");
+            const countdownProgress = document.getElementById("countdownProgress");
+            const countdownText = document.getElementById("countdownText");
+            let timer;
+            
+            function closeAd() {
+                adModal.classList.remove("show");
+                clearInterval(timer);
+                if(adModal.timeout) clearTimeout(adModal.timeout);
+            }
+            
+            // 点击X关闭按钮
+            closeButton.addEventListener('click', closeAd);
+            
+            // 点击背景关闭
+            adModal.addEventListener('click', function(event) {
+                if (event.target === adModal) closeAd();
+            });
+            
+            function startCountdown() {
+                let seconds = 10;
+                countdownText.textContent = `${seconds}秒后自动关闭`;
+                countdownProgress.style.width = "100%";
+                
+                timer = setInterval(() => {
+                    seconds--;
+                    countdownText.textContent = `${seconds}秒后自动关闭`;
+                    countdownProgress.style.width = `${seconds * 10}%`;
+                    
+                    if (seconds <= 0) {
+                        clearInterval(timer);
+                        closeAd();
+                    }
+                }, 1000);
+            }
+            
+            // 初始显示广告
+            adModal.timeout = setTimeout(() => {
+                if (!adModal.classList.contains("show")) {
+                    adModal.style.display = "flex";
+                    setTimeout(() => {
+                        adModal.classList.add("show");
+                        startCountdown();
+                    }, 50);
+                }
+            }, 3000);
+        }
+        
+        document.addEventListener('DOMContentLoaded', setupAdModal);
+    </script>
 </body>
 </html>
